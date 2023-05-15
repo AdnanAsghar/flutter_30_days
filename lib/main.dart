@@ -7,8 +7,6 @@ import 'package:flutter_30_days/day5.dart';
 
 void main() {
   runApp(MaterialApp(
-    home: Scaffold(
-      body: Day5(),
-    ),
+    home: Day4(),
   ));
 }

@@ -16,48 +16,50 @@ class _Day2State extends State<Day2> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          if (tip != '')
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Text(
-                tip,
-                style: const TextStyle(
-                  fontSize: 50,
-                  color: Colors.green,
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            if (tip != '')
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Text(
+                  tip,
+                  style: const TextStyle(
+                    fontSize: 50,
+                    color: Colors.green,
+                  ),
                 ),
               ),
+            const Text('Total Amount'),
+            SizedBox(
+              width: 100,
+              child: TextField(
+                controller: controller,
+                textAlign: TextAlign.center,
+                decoration: InputDecoration(hintText: '\$100.00'),
+                keyboardType: TextInputType.numberWithOptions(decimal: true),
+              ),
             ),
-          const Text('Total Amount'),
-          SizedBox(
-            width: 100,
-            child: TextField(
-              controller: controller,
-              textAlign: TextAlign.center,
-              decoration: InputDecoration(hintText: '\$100.00'),
-              keyboardType: TextInputType.numberWithOptions(decimal: true),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              child: ToggleButtons(
+                children: [Text('10%'), Text('15%'), Text('20%')],
+                isSelected: _toggleSelection,
+                onPressed: updateSelection,
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 20),
-            child: ToggleButtons(
-              children: [Text('10%'), Text('15%'), Text('20%')],
-              isSelected: _toggleSelection,
-              onPressed: updateSelection,
-            ),
-          ),
-          TextButton(
-            onPressed: calculateTip,
-            child: Text('Calculate Tip'),
-            style: TextButton.styleFrom(
-              backgroundColor: Colors.green,
-              foregroundColor: Colors.white,
-            ),
-          )
-        ],
+            TextButton(
+              onPressed: calculateTip,
+              child: Text('Calculate Tip'),
+              style: TextButton.styleFrom(
+                backgroundColor: Colors.green,
+                foregroundColor: Colors.white,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

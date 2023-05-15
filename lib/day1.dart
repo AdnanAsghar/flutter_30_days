@@ -21,30 +21,32 @@ class _Day1State extends State<Day1> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text('What do you want to eat?'),
-          if (currentIndex != null)
-            Text(
-              restaurants[currentIndex],
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('What do you want to eat?'),
+            if (currentIndex != null)
+              Text(
+                restaurants[currentIndex],
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+              ),
+            SizedBox(
+              height: 50,
             ),
-          SizedBox(
-            height: 50,
-          ),
-          TextButton(
-            style: TextButton.styleFrom(
-                foregroundColor: Colors.white, backgroundColor: Colors.blue),
-            onPressed: () {
-              updateIndex();
-            },
-            child: Text(
-              'Pick Restaurant',
+            TextButton(
+              style: TextButton.styleFrom(
+                  foregroundColor: Colors.white, backgroundColor: Colors.blue),
+              onPressed: () {
+                updateIndex();
+              },
+              child: Text(
+                'Pick Restaurant',
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

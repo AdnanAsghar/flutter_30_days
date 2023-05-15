@@ -23,42 +23,44 @@ class _Day4State extends State<Day4> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(
-            width: 250,
-            height: 250,
-            child: FlipCard(
-              front: FlashCardView(
-                title: _cards[_currentIndex].question,
-              ),
-              back: FlashCardView(
-                title: _cards[_currentIndex].answer,
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+              width: 250,
+              height: 250,
+              child: FlipCard(
+                front: FlashCardView(
+                  title: _cards[_currentIndex].question,
+                ),
+                back: FlashCardView(
+                  title: _cards[_currentIndex].answer,
+                ),
               ),
             ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              OutlinedButton.icon(
-                onPressed: showPreviousCard,
-                icon: Icon(
-                  Icons.chevron_left,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                OutlinedButton.icon(
+                  onPressed: showPreviousCard,
+                  icon: Icon(
+                    Icons.chevron_left,
+                  ),
+                  label: Text('Prev'),
                 ),
-                label: Text('Prev'),
-              ),
-              OutlinedButton.icon(
-                onPressed: showNextCard,
-                icon: Icon(
-                  Icons.chevron_right,
+                OutlinedButton.icon(
+                  onPressed: showNextCard,
+                  icon: Icon(
+                    Icons.chevron_right,
+                  ),
+                  label: Text('Next'),
                 ),
-                label: Text('Next'),
-              ),
-            ],
-          )
-        ],
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

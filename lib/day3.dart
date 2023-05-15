@@ -14,30 +14,32 @@ class _Day3State extends State<Day3> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Column(
-        children: [
-          Expanded(
-            child: TextField(
-              textInputAction: TextInputAction.done,
-              maxLines: null,
-              style: TextStyle(
-                fontSize: _fontSize,
+    return Scaffold(
+      body: SafeArea(
+        child: Column(
+          children: [
+            Expanded(
+              child: TextField(
+                textInputAction: TextInputAction.done,
+                maxLines: null,
+                style: TextStyle(
+                  fontSize: _fontSize,
+                ),
               ),
             ),
-          ),
-          Slider(
-              min: 30,
-              max: 200,
-              value: _fontSize,
-              onChanged: (value) {
-                setState(() {
-                  _fontSize = value;
-                  print(value);
-                });
-                ;
-              })
-        ],
+            Slider(
+                min: 30,
+                max: 200,
+                value: _fontSize,
+                onChanged: (value) {
+                  setState(() {
+                    _fontSize = value;
+                    print(value);
+                  });
+                  ;
+                })
+          ],
+        ),
       ),
     );
   }
